@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>rslidar_laserscan</name>
+  <version>1.0.0</version>
+  <description>
+    Extract a horizontal ring of rslidar PointCloud2 and publish it as a LaserScan message.
+  </description>
+  <maintainer email="ron.zheng@robosense.cn">ron.zheng</maintainer>
+  <author>ron.zheng</author>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roscpp</depend>
+  <depend>sensor_msgs</depend>
+</package>

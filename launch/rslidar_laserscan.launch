@@ -1,0 +1,8 @@
+<launch>
+
+  <node pkg="rslidar_laserscan" name="rslidar_laserscan_node" type="rslidar_laserscan_node" output="screen">
+    <param name="model" value="RS16"/>
+    <param name="sub_topic" value="/rslidar_points" />
+  </node>
+
+</launch>
