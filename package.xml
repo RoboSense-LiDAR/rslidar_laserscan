@@ -5,8 +5,8 @@
   <description>
     Extract a horizontal ring of rslidar PointCloud2 and publish it as a LaserScan message.
   </description>
-  <maintainer email="ron.zheng@robosense.cn">ron.zheng</maintainer>
-  <author>ron.zheng</author>
+  <maintainer email="ron.zheng@robosense.cn">RoboSense</maintainer>
+  <author>RoboSense</author>
   <license>BSD</license>
 
   <buildtool_depend>catkin</buildtool_depend>
