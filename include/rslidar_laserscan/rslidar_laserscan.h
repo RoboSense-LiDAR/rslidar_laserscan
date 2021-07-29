@@ -56,7 +56,6 @@ public:
 private:
   void connectCb();
   void recvCallback(const sensor_msgs::PointCloud2ConstPtr& msg);
-  bool isRs32(const sensor_msgs::PointCloud2ConstPtr& msg);
 
   uint16_t ring_;
   uint16_t height_;

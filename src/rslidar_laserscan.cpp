@@ -57,12 +57,19 @@ RslidarLaserScan::RslidarLaserScan(ros::NodeHandle& nh, ros::NodeHandle& nh_priv
     range_min_ = 0.4;
     range_max_ = 150.0;
   }
-  else if (model == "RS32" || model == "RSHELIOS")
+  else if (model == "RS32")
+  {
+    height_ = 32;
+    ring_ = 9;
+    range_min_ = 0.4;
+    range_max_ = 200.0;
+  }
+  else if (model == "RSHELIOS")
   {
     height_ = 32;
     ring_ = 9;
     range_min_ = 0.2;
-    range_max_ = 200.0;
+    range_max_ = 150.0;
   }
   else if (model == "RSBP")
   {
