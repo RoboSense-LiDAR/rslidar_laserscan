@@ -94,7 +94,7 @@ RslidarLaserScan::RslidarLaserScan(ros::NodeHandle& nh, ros::NodeHandle& nh_priv
   }
   else
   {
-    std::cout << "lidar model is bad, please set the right model!" << std::endl;
+    std::cout << "lidar model is bad. please choose right model from: RS16|RS32|RSHELIOS|RSBP|RS80|RS128!" << std::endl;
     exit(-1);
   }
 
