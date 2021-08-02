@@ -50,45 +50,96 @@ RslidarLaserScan::RslidarLaserScan(ros::NodeHandle& nh, ros::NodeHandle& nh_priv
   nh_priv.param("sub_topic", sub_topic_, std::string("/rslidar_points"));
   nh_priv.param("model", model, std::string("RS16"));
 
+  int ring = 1000;
+  nh_priv.param("ring", ring, 1000);  // 1000 is not set ring
+
   if (model == "RS16")
   {
     height_ = 16;
-    ring_ = 7;
+    if (ring != 1000 && (ring > 0 && ring < 16 + 1))
+    {
+      ring_ = ring - 1;  // the code start from 0
+      std::cout << "set ring: " << ring << std::endl;
+    }
+    else
+    {
+      ring_ = 7;
+    }
     range_min_ = 0.4;
     range_max_ = 150.0;
   }
   else if (model == "RS32")
   {
     height_ = 32;
-    ring_ = 9;
+    if (ring != 1000 && (ring > 0 && ring < 32 + 1))
+    {
+      ring_ = ring - 1;  // the code start from 0
+      std::cout << "set ring: " << ring << std::endl;
+    }
+    else
+    {
+      ring_ = 9;
+    }
     range_min_ = 0.4;
     range_max_ = 200.0;
   }
   else if (model == "RSHELIOS")
   {
     height_ = 32;
-    ring_ = 9;
+    if (ring != 1000 && (ring > 0 && ring < 32 + 1))
+    {
+      ring_ = ring - 1;  // the code start from 0
+      std::cout << "set ring: " << ring << std::endl;
+    }
+    else
+    {
+      ring_ = 9;
+    }
     range_min_ = 0.2;
     range_max_ = 150.0;
   }
   else if (model == "RSBP")
   {
     height_ = 32;
-    ring_ = 31;
+    if (ring != 1000 && (ring > 0 && ring < 32 + 1))
+    {
+      ring_ = ring - 1;  // the code start from 0
+      std::cout << "set ring: " << ring << std::endl;
+    }
+    else
+    {
+      ring_ = 31;
+    }
     range_min_ = 0.1;
     range_max_ = 30.0;
   }
   else if (model == "RS80")
   {
     height_ = 80;
-    ring_ = 74;
+    if (ring != 1000 && (ring > 0 && ring < 80 + 1))
+    {
+      ring_ = ring - 1;  // the code start from 0
+      std::cout << "set ring: " << ring << std::endl;
+    }
+    else
+    {
+      ring_ = 74;
+    }
     range_min_ = 1.0;
     range_max_ = 230.0;
   }
   else if (model == "RS128")
   {
     height_ = 128;
-    ring_ = 118;
+    if (ring != 1000 && (ring > 0 && ring < 128 + 1))
+    {
+      ring_ = ring - 1;  // the code start from 0
+      std::cout << "set ring: " << ring << std::endl;
+    }
+    else
+    {
+      ring_ = 118;
+    }
     range_min_ = 1.0;
     range_max_ = 250.0;
   }
@@ -97,7 +148,6 @@ RslidarLaserScan::RslidarLaserScan(ros::NodeHandle& nh, ros::NodeHandle& nh_priv
     std::cout << "lidar model is bad. please choose right model from: RS16|RS32|RSHELIOS|RSBP|RS80|RS128!" << std::endl;
     exit(-1);
   }
-
   pub_ = nh.advertise<sensor_msgs::LaserScan>("rslidar_laserscan", 10, connect_cb, connect_cb);
 }
 

@@ -3,6 +3,8 @@
   <node pkg="rslidar_laserscan" name="rslidar_laserscan_node" type="rslidar_laserscan_node" output="screen">
     <param name="model" value="RS16"/>
     <param name="sub_topic" value="/rslidar_points" />
+    <!-- the ring start from 1 -->
+    <param name="ring" value="8" />  
   </node>
 
 </launch>
