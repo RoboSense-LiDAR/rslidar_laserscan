@@ -98,6 +98,21 @@ RslidarLaserScan::RslidarLaserScan(ros::NodeHandle& nh, ros::NodeHandle& nh_priv
     range_min_ = 0.2;
     range_max_ = 150.0;
   }
+  else if (model == "RSHELIOS_16P")
+  {
+    height_ = 16;
+    if (ring != 1000 && (ring > 0 && ring < 16 + 1))
+    {
+      ring_ = ring - 1;  // the code start from 0
+      std::cout << "set ring: " << ring << std::endl;
+    }
+    else
+    {
+      ring_ = 6;
+    }
+    range_min_ = 0.4;
+    range_max_ = 200.0;
+  }
   else if (model == "RSBP")
   {
     height_ = 32;
@@ -145,7 +160,7 @@ RslidarLaserScan::RslidarLaserScan(ros::NodeHandle& nh, ros::NodeHandle& nh_priv
   }
   else
   {
-    std::cout << "lidar model is bad. please choose right model from: RS16|RS32|RSHELIOS|RSBP|RS80|RS128!" << std::endl;
+    std::cout << "lidar model is bad. please choose right model from: RS16|RS32|RSHELIOS|RSHELIOS_16P|RSBP|RS80|RS128!" << std::endl;
     exit(-1);
   }
   pub_ = nh.advertise<sensor_msgs::LaserScan>("rslidar_laserscan", 10, connect_cb, connect_cb);
