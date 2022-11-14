@@ -4,7 +4,7 @@
 ## 1 Introduction
 Extract a horizontal ring of rslidar PointCloud2 and publish it as a LaserScan message.  
 
-For now, only support 10 Hz `RS16/RS32/RSBP/RSHELIOS/RS80/RS128`.    
+For now, only support 10 Hz `RS16/RS32/RSBP/RSHELIOS/RSHELIOS_16P/RS80/RS128`.    
 
 ## 2 Compile
 ```
